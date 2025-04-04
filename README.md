@@ -65,3 +65,4 @@ output: github_document
   - `make .table1` will create the table 1
   - `make .boxplots_symptom_duration` will create the four `.rds` files needed to compile the plots for the report
 # project_joey
+# project_joey
