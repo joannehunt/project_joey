@@ -1,5 +1,5 @@
 ---
-title: "Preliminary Report April 3"
+title: "Uploadable_Project_Draft"
 author: "Joey"
 date: "`r Sys.Date()`"
 output: html_document
@@ -14,8 +14,9 @@ opts_chunk$set(echo = FALSE,
 ```
 # Introduction
 ```{r, loading-in-data}
+here::i_am("Final_Project_Draft.rmd")
 
-data_1<- readRDS(file = here::here("output/variablized_cleaned_data.rds"))
+data<- readRDS(file = here::here("output/variablized_cleaned_data.rds"))
 
 ```
 ## Data Description
@@ -29,7 +30,7 @@ The preliminary analysis will identify and count the number of PCR positives for
 # Descriptive Analyses of RADX Data
 
 ## Table 1
-Characteristics of `r nrow(data_1)` participants are displayed in the table below.
+Characteristics of `r nrow(data)` participants are displayed in the table below.
 ```{r, table-one}
 table_one <- readRDS(
   file = here::here("output/table1.rds"))
@@ -45,7 +46,7 @@ table_one
 #| fig.align = "center",
 #| out.width = "400px"
 library(dplyr)
-covid_ct_symptom_group_filtered <- data_1 %>%
+covid_ct_symptom_group_filtered <- data %>%
   filter(covid_result_factor != "Negative" & !is.na(ct_value_1))
 
 knitr::include_graphics(
@@ -53,7 +54,7 @@ knitr::include_graphics(
 )
 
 ```
-There were `r sum(data_1$covid_result_factor == "Positive", na.rm = TRUE)` PCR Positives for Sars-CoV-2. Of these, `r nrow(covid_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
+There were `r sum(data$covid_result_factor == "Positive", na.rm = TRUE)` PCR Positives for Sars-CoV-2. Of these, `r nrow(covid_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
 
 ## Flu A
 
@@ -64,7 +65,7 @@ There were `r sum(data_1$covid_result_factor == "Positive", na.rm = TRUE)` PCR P
 #| fig.align = "center",
 #| out.width = "400px"
 
-fluA_ct_symptom_group_filtered <- data_1 %>%
+fluA_ct_symptom_group_filtered <- data %>%
   filter(fluA_result_factor != "Negative" & !is.na(flua_ct1))
 
 knitr::include_graphics(
@@ -73,7 +74,7 @@ knitr::include_graphics(
 
 ```
 
-There were `r sum(data_1$fluA_result_factor == "Positive", na.rm = TRUE)` PCR Positives for Influenza A. Of these, `r nrow(fluA_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
+There were `r sum(data$fluA_result_factor == "Positive", na.rm = TRUE)` PCR Positives for Influenza A. Of these, `r nrow(fluA_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
 
 ## Flu B
 
@@ -84,14 +85,14 @@ There were `r sum(data_1$fluA_result_factor == "Positive", na.rm = TRUE)` PCR Po
 #| fig.align = "center",
 #| out.width = "400px"
 
-fluB_ct_symptom_group_filtered <- data_1 %>%
+fluB_ct_symptom_group_filtered <- data %>%
   filter(fluB_result_factor != "Negative" & !is.na(flub_ct1))
 
 knitr::include_graphics(
   here::here("output/fluB_boxplot.png")
 )
 ```
-There were `r sum(data_1$fluB_result_factor == "Positive", na.rm = TRUE)` PCR Positives for Influenza B. Of these, `r nrow(fluB_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
+There were `r sum(data$fluB_result_factor == "Positive", na.rm = TRUE)` PCR Positives for Influenza B. Of these, `r nrow(fluB_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
 
 ## RSV
 
@@ -101,7 +102,7 @@ There were `r sum(data_1$fluB_result_factor == "Positive", na.rm = TRUE)` PCR Po
 #| fig.align = "center",
 #| out.width = "400px"
 
-rsv_ct_symptom_group_filtered <- data_1 %>%
+rsv_ct_symptom_group_filtered <- data %>%
   filter(rsv_result_factor != "Negative" & !is.na(rsv_ct))
 
 knitr::include_graphics(
@@ -109,4 +110,4 @@ knitr::include_graphics(
 )
 
 ```
-There were `r sum(data_1$rsv_result_factor == "Positive", na.rm = TRUE)` PCR Positives for RSV. Of these, `r nrow(rsv_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
+There were `r sum(data$rsv_result_factor == "Positive", na.rm = TRUE)` PCR Positives for RSV. Of these, `r nrow(rsv_ct_symptom_group_filtered)` had Ct values reported in their chart. Above is a figure of Ct Values by days of symptom duration.
