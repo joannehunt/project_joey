@@ -64,5 +64,5 @@ output: github_document
   - `make .variablized_cleaned_data` will generate the cleaned dataset with variables
   - `make .table1` will create the table 1
   - `make .boxplots_symptom_duration` will create the four `.rds` files needed to compile the plots for the report
-# project_joey
-# project_joey
+  - `make .install` restores the renv packages that are used in the project directory.
+
