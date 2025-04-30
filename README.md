@@ -9,13 +9,15 @@ output: github_document
 
 ------------------------------------------------------------------------
 ## Building the Docker image
-- Ensure your working directory is set to be final_proj directory
+- Ensure your working directory is set to the project directory
 - The Docker image can be built from a call to make project_image
 - The public image for my final project is called joannehunt/project_image
+- Note that this container is set up to run in a Windows system
+
 Link:https://hub.docker.com/repository/docker/joannehunt/project_image/tags/final_image/
 
 ## Sync packages for the project
-- Ensure your working directory is set to be final_proj directory
+- Ensure your working directory is set to the project directory
 - Run `make install` in the command line
 
 ## Report Description
