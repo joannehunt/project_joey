@@ -8,6 +8,21 @@ output: github_document
 > loading data, cleaning data, descriptive statistics, plots, stratified analyses
 
 ------------------------------------------------------------------------
+## Building the Docker image
+- Ensure your working directory is set to be final_proj directory
+- The Docker image can be built from a call to make project_image
+- The public image for my final project is called joannehunt/project_image
+Link:https://hub.docker.com/repository/docker/joannehunt/project_image/tags/final_image/
+
+## Sync packages for the project
+- Ensure your working directory is set to be final_proj directory
+- Run `make install` in the command line
+
+## Report Description
+The report contains an overall table, and then several plots to visualize 
+the distribution of Ct values for COVID, Flu A and B, and RSV. The README file
+presents a more detailed description of the different code used to generate the 
+report. 
 
 ##  Code descriptions
 
@@ -56,6 +71,8 @@ output: github_document
 `code/100_render_report.R`
 
   - renders report
+  
+  
 
 `Makefile`
 
